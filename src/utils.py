@@ -22,11 +22,3 @@ def create_objects_from_json(data):
         categories.append(Category(**category))
 
     return categories
-
-
-data_from_json = read_json_data("../data/products.json")
-categories_data = create_objects_from_json(data_from_json)
-
-print(categories_data)
-print(categories_data[0].name)
-print(categories_data[0].products)
