@@ -15,3 +15,9 @@ def test_category_init(category_one, product_one, product_two):
 
     assert Category.category_count == 1
     assert Category.product_count == 2
+
+
+def test_category_add_product(category_one, product_one, product_two, product_three):
+    category_one.add_product(product_three)
+    assert category_one.products == [product_one, product_two, product_three]
+    assert len(category_one.products) == 3
