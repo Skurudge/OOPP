@@ -24,4 +24,5 @@ class Category:
     def add_product(self, new_product):
         """метод добавления new_product в список продуктов"""
         self.__products.append(new_product)
-        self.product_count = len(self.__products)
+
+        Category.product_count += 1
