@@ -19,7 +19,10 @@ class Category:
     @property
     def products(self):
         """геттер для получения списка продуктов в нужном формате"""
-        return self.__products
+        product_str = ""
+        for product in self.__products:
+            product_str += f"{product.name}, {product.price} руб., Остаток: {product.quantity} шт.\n"
+        return product_str
 
     def add_product(self, new_product):
         """метод добавления new_product в список продуктов"""

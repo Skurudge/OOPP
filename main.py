@@ -38,6 +38,7 @@ if __name__ == "__main__":
     list_of = [product1, product2, product3]
 
     result = Product.update_or_add(new_product, list_of)
+
     print(result)
 
     new_product.price = 800
