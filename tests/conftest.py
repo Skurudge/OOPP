@@ -15,6 +15,11 @@ def product_two():
 
 
 @pytest.fixture()
+def product_three():
+    return Product("Iphone 17", "256GB, Titan", 240000.0, 1)
+
+
+@pytest.fixture()
 def category_one(product_one, product_two):
     return Category(
         "Телевизоры",

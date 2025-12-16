@@ -1,3 +1,6 @@
+from unittest.mock import patch
+
+
 def test_product_init_01(product_one):
     assert product_one.name == "Iphone 15"
     assert product_one.description == "512GB, Gray space"
@@ -10,3 +13,19 @@ def test_product_init_02(product_two):
     assert product_two.description == "256GB, White"
     assert product_two.price == 210000.0
     assert product_two.quantity == 12
+
+
+def test_price_negative(product_one):
+    product_one.price = -100000.0
+    assert product_one.price == 210000.0
+
+
+def test_price_increase(product_one):
+    product_one.price = 350000.0
+    assert product_one.price == 350000.0
+
+
+@patch("builtins.input", return_value="y")
+def test_price_decrease_yes(product_one):
+    product_one.price = 150000.0
+    assert product_one.price == 150000.0

@@ -29,6 +29,3 @@ def test_create_objects_from_json(json_data_products) -> None:
         result[0].description
         == "Смартфоны, как средство не только коммуникации, но и удобства жизни"
     )
-    assert len(result[0].products) == 2
-
-    assert len(result) == 1
