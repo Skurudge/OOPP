@@ -29,3 +29,13 @@ def test_price_increase(product_one):
 def test_price_decrease_yes(product_one):
     product_one.price = 150000.0
     assert product_one.price == 150000.0
+
+
+def test_str_product(product_one):
+    assert str(product_one) == "Iphone 15, 210000.0 руб., Остаток: 8 шт."
+
+
+def test_add_product(product_one, product_two):
+    assert (
+        product_one + product_two == "Общая стоимость товаров на складе: 4200000.0 руб."
+    )
