@@ -16,12 +16,19 @@ class Category:
         Category.category_count += 1
         Category.product_count = len(products)
 
+    def __str__(self):
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+
+        return f"{self.name}, Количество продуктов: {total_quantity} шт."
+
     @property
     def products(self):
         """геттер для получения списка продуктов в нужном формате"""
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.price} руб., Остаток: {product.quantity} шт.\n"
+            product_str += f"{str(product)}\n"
         return product_str
 
     def add_product(self, new_product):

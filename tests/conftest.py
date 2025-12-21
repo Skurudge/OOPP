@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.iter_products import ProductsIterator
 from src.product import Product
 
 
@@ -26,6 +27,11 @@ def category_one(product_one, product_two):
         "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         [product_one, product_two],
     )
+
+
+@pytest.fixture()
+def iterator_one(category_one):
+    return ProductsIterator(category_one)
 
 
 @pytest.fixture()
