@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 
 
@@ -31,3 +33,8 @@ def test_category_add_product(category_one, product_one, product_two, product_th
 
 def test_str_category(category_one):
     assert str(category_one) == "Телевизоры, Количество продуктов: 20 шт."
+
+
+def test_category_add_product_error(category_one):
+    with pytest.raises(TypeError):
+        category_one.add_product("Not a product")
