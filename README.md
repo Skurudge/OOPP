@@ -69,7 +69,7 @@ add_product() в классе, в который можно передавать
 
 - Разработаны тесты, используя pytest и применяя [фикстуры](tests/conftest.py).
 
-- Разработаны тесты [test_product_init_01/02](tests/test_product.py) проверяющие корректность инициализации объектов 
+- Разработаны тесты [test_product_init_product_one/two](tests/test_product.py) проверяющие корректность инициализации объектов 
 класса [Product](src/product.py). Добавлено тестирование новой функциональности, в том числе методов __str__, __add__.
 - Разработан тест [test_category_init](tests/test_category.py) проверяющий корректность инициализации объектов 
 класса [Category](src/category.py), а также подсчета количества продуктов и количества категорий. Добавлено тестирование 
@@ -80,7 +80,8 @@ add_product() в классе, в который можно передавать
 - Разработаны тесты для новой функциональности: [test_smartphone_init](tests/test_smartphone.py) проверяющий 
 корректность инициализации объектов [class Smartphone](src/smartphone.py), а также тесты для проверки корректности 
 работы метода __add__: [test_smartphone_add](tests/test_smartphone.py), отработка ошибок
-[test_smartphone_add_error](tests/test_smartphone.py) и [test_smartphone_add_error2](tests/test_smartphone.py).
+[test_smartphone_add_error](tests/test_smartphone.py) и 
+[test_smartphone_add_error_other_object](tests/test_smartphone.py).
 - Разработаны тесты для новой функциональности: [test_grass_init](tests/test_lawngrass.py) проверяющий 
 корректность инициализации объектов [class LawnGrass](src/lawngrass.py), а также тесты для проверки корректности 
 работы метода __add__: [test_grass_add](tests/test_lawngrass.py), отработка ошибок

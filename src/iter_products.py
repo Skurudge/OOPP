@@ -1,5 +1,4 @@
 class ProductsIterator:
-
     def __init__(self, category_object):
         self.category = category_object
         self.index = 0

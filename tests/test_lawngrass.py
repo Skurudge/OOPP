@@ -22,6 +22,6 @@ def test_smartphone_add_error(grass_two, smartphone_one):
         Product.__add__(grass_two, smartphone_one)
 
 
-def test_smartphone_add_error2(grass_one):
+def test_smartphone_add_error_other_object(grass_one):
     with pytest.raises(TypeError):
         Product.__add__(grass_one, "j")

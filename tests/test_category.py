@@ -13,10 +13,8 @@ def test_category_init(category_one, product_one, product_two):
         "Iphone 15, 210000.0 руб., Остаток: 8 шт.\n"
         "Iphone 16, 210000.0 руб., Остаток: 12 шт.\n"
     )
-
     assert category_one.category_count == 1
     assert category_one.product_count == 2
-
     assert Category.category_count == 1
     assert Category.product_count == 2
 

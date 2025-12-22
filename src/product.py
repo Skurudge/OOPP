@@ -1,11 +1,9 @@
 class Product:
     """Класс для представления продукта"""
-
     name: str
     description: str
     __price: float
     quantity: int
-
     products: list = []
 
     def __init__(self, name, description, price, quantity):
