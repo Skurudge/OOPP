@@ -1,11 +1,9 @@
 class Product:
     """Класс для представления продукта"""
-
     name: str
     description: str
     __price: float
     quantity: int
-
     products: list = []
 
     def __init__(self, name, description, price, quantity):
@@ -18,8 +16,11 @@ class Product:
         return f"{self.name}, {self.price} руб., Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        total_value = self.__price * self.quantity + other.__price * other.quantity
-        return f"Общая стоимость товаров на складе: {total_value} руб."
+        if type(self) is type(other):
+            total_value = self.__price * self.quantity + other.__price * other.quantity
+            return f"Общая стоимость товаров на складе: {total_value} руб."
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, product_dict):
