@@ -64,7 +64,18 @@ add_product() в классе, в который можно передавать
 - Реализована загрузка данных по категориям и товарам из файла [JSON](data/products.json). 
 Для этого разработана функция [read_json_data](src/utils.py), которая загружает данные из файла. 
 И разработана функция [create_objects_from_json](src/utils.py), которая создает объекты классов.
-- Весь имеющийся код в файле [main.py](14.1_main.py) запускается без ошибок (с переносом части кода на [src](src)).
+- Создан базовый абстрактный класс с именем BaseProduct[class BaseProduct](src/base_product.py), который 
+является родительским для класса продуктов. Классы [class Smartphone](src/smartphone.py) 
+и [class LawnGrass](src/lawngrass.py) остаются наследниками класса Product и тем самым наследуют все свойства 
+абстрактного класса.
+- Реализован класс-миксин [class PrintMixin](src/print_mixin.py), который при создании объекта будет печатать 
+в консоль информацию о том, от какого класса и с какими параметрами был создан объект.
+- Создан класс [class OrderProduct](src/order_product.py) с указанием товара, который был куплен, 
+количество купленного товара, а также итоговой стоимости. 
+- Для классов [class OrderProduct](src/order_product.py) и [class Category](src/category.py) выделено общее свойство, 
+вынесенное в их общий абстрактный класс [class BaseCategory](src/base_category.py).
+- Весь имеющийся код в файле [main.py](main.py) запускается без ошибок.
+
 ### Тестирование:
 
 - Разработаны тесты, используя pytest и применяя [фикстуры](tests/conftest.py).
@@ -86,6 +97,12 @@ add_product() в классе, в который можно передавать
 корректность инициализации объектов [class LawnGrass](src/lawngrass.py), а также тесты для проверки корректности 
 работы метода __add__: [test_grass_add](tests/test_lawngrass.py), отработка ошибок
 [test_grass_add_error](tests/test_lawngrass.py) и [test_grass_add_error2](tests/test_lawngrass.py).
+- Разработаны тесты для новой функциональности: [test_print_mixin_product](tests/test_print_mixin.py) проверяющий 
+корректность вывода на печать объектов [class Product](src/product.py), а также тесты для проверки корректности 
+печати объектов классов - наследников: [test_print_mixin_smartphone](tests/test_print_mixin.py) и 
+[test_print_mixin_grass](tests/test_print_mixin.py).
+- Разработан тест для новой функциональности: [test_print_order_product](tests/test_order_product.py) проверяющий 
+корректность вывода на печать объектов [class OrderProduct](src/order_product.py),
 
 ## Документация:
 
