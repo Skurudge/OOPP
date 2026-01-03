@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.product import Product
 
 
 def test_category_init(category_one, product_one, product_two):
@@ -36,3 +37,26 @@ def test_str_category(category_one):
 def test_category_add_product_error(category_one):
     with pytest.raises(TypeError):
         category_one.add_product("Not a product")
+
+
+def test_middle_price_zero():
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    assert category_empty.middle_price() == 0.0
+
+
+def test_middle_price(category_one):
+    assert category_one.middle_price() == 210000.0
+
+
+def test_add_product(capsys):
+    new_product = Product("Iphone 15", "512GB, Gray space", 210000.0, 4)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    category1 = Category("Смартфоны", "Категория смартфонов", [product2, product3])
+    category1.add_product(new_product)
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-2] == "Продукт добавлен успешно"
+    assert (
+        message.out.strip().split("\n")[-1]
+        == "Обработка задачи добавления продукта завершена"
+    )

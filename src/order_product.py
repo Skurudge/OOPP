@@ -1,4 +1,5 @@
 from src.base_category import BaseCategory
+from src.exceptions import ZeroQuantity
 from src.print_mixin import PrintMixin
 
 
@@ -10,8 +11,19 @@ class OrderProduct(BaseCategory, PrintMixin):
         self.description = description
         self.price = price
         self.quantity_stock = quantity_stock
-        self.quantity_order = quantity_order
-        self.print_attributes()
+        try:
+            if quantity_order == 0:
+                raise ZeroQuantity(
+                    "Невозможно создать заказ с нулевым количеством товара"
+                )
+        except ZeroQuantity as e:
+            print(str(e))
+        else:
+            self.quantity_order = quantity_order
+            print("Заказ создан успешно")
+            self.print_attributes()
+        finally:
+            print("Задача создания заказа завершена")
 
     @property
     def total_value(self):

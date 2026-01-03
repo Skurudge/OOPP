@@ -1,5 +1,9 @@
 from unittest.mock import patch
 
+import pytest
+
+from src.product import Product
+
 
 def test_product_init_product_one(product_one):
     assert product_one.name == "Iphone 15"
@@ -39,3 +43,10 @@ def test_add_product(product_one, product_two):
     assert (
         product_one + product_two == "Общая стоимость товаров на складе: 4200000.0 руб."
     )
+
+
+def test_product_zero_quantity():
+    with pytest.raises(
+        ValueError, match="Товар с нулевым количеством не может быть добавлен"
+    ):
+        Product("Iphone 15", "512GB, Gray space", 210000.0, 0)
